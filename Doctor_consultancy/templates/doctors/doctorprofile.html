@@ -1,0 +1,166 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View Profile</title><!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,900&display=swap" rel="stylesheet">
+    <!-- Bootstrap CSS -->
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css'>
+    <!-- Font Awesome CSS -->
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css'>
+    <style>
+        body {
+            background-color:  rgb(48,48,114);
+            padding: 0;
+            margin: 0;
+            font-family: 'Lato', sans-serif;
+            color: #000;
+        }
+    .student-profile .card {
+        border-radius: 10px;
+    }
+    .student-profile .card .card-header .profile_img {
+        width: 200px;
+        height: 200px;
+        margin: 5px auto;
+        border: 10px solid  rgb(48,48,114);
+        color:white;
+        border-radius: 50%;
+    }
+    .student-profile .card h3 {
+        font-size: 20px;
+        font-weight: 700;
+    }
+    .student-profile .card p {
+        font-size: 16px;
+        color: #000;
+    }
+    .student-profile .table th,
+    .student-profile .table td {
+        font-size: 14px;
+        padding: 5px 10px;
+        color: #000;
+    }
+    #myNav{
+    background-color:  rgb(19, 19, 95);
+
+    }
+    #myNav .nav-link{
+        color:white;
+        font-weight: bold;
+        font-size: 15px;
+        margin:0 100px;
+    }
+    #myNav .nav-link:hover{
+        background-color: white;
+        color: rgb(19, 19, 95);
+    }
+
+  
+    </style>
+</head>
+<body>
+	<nav id="myNav">
+        <div class="fluid-container">
+                <div class="d-flex justify-content-center p-2">
+
+                <ul class="nav nav-pills">
+                    <li class="nav-item"><a  href="#" class="nav-link " aria-current="page">Book Appointment</a></li>
+                    <li class="nav-item"><a  href="#"class="nav-link">My Bookings</a></li>
+                    <li class="nav-item"><a href="#" class="nav-link">View Your Profile</a></li>
+                    <li class="nav-item"><a a href="{% url 'home' %}" class="nav-link">LogOut</a></li>
+                </ul>
+                </div>
+        </div>
+    </nav>
+    <div class="student-profile mx-auto" >
+        <div class="container ">
+            <div class="row">
+                <div class="col-8"style="margin-top:100px;margin-left: 200px;">
+                    <div class="card shadow-sm">
+                        <div class="card-header bg-transparent text-center">
+                            <img class="profile_img" src="https://www.medicaltrusthospital.com/uploads/doctor/68209dummytt.jpg" style="height: 100%;"alt="student dp">
+                            <h3>{{i.dname}} </h3>
+                        </div>
+                        <div class="card shadow-sm">
+                            <div class="card-header bg-transparent border-0">
+                            <h3 class="mb-0"><i class="far fa-clone pr-1"></i>General Information</h3>
+                            </div>
+                            <div class="card-body pt-0">
+								<form role="form" method="POST" >
+									{% csrf_token %}
+                                    <a href="{% url 'dedit' i.doctor_id %}">Edit</a>
+
+									<table class="table table-bordered">
+										<tr>
+										<th width="30%">Doctor Name</th>
+										<td width="2%">:</td>
+										<td> {{i.dname}}</td>
+										</tr>
+										<tr>
+										<th width="30%">Email	</th>
+										<td width="2%">:</td>
+										<td> {{i.demail}}</td>
+										</tr>
+										<tr>
+										<th width="30%">Password</th>
+										<td width="2%">:</td>
+										<td>{{i.password}}</td>
+										</tr>
+										<tr>
+										<th width="30%">Mobile No</th>
+										<td width="2%">:</td>
+										<td>{{i.dmobile_number}}</td>
+										</tr>
+                                        <tr>
+                                            <th width="30%">age</th>
+                                            <td width="2%">:</td>
+                                            <td>{{i.dage}}</td>
+                                            </tr>
+										<tr>  
+                                        <tr>
+                                                <th width="30%">Speciality</th>
+                                                <td width="2%">:</td>
+                                                <td>{{i.dspecial}}</td>
+                                                </tr>
+                                        <tr>
+                                        <tr>
+                                                <th width="30%">Experience</th>
+                                                <td width="2%">:</td>
+                                                <td>{{i.dexperience}}</td>
+                                                </tr>
+                                        <tr>
+										<th width="30%">Country</th>
+										<td width="2%">:</td>
+										<td>{{i.dcountry}}</td>
+										</tr>
+										<tr>
+											<th width="30%">State</th>
+											<td width="2%">:</td>
+											<td>{{i.dstate}}</td>
+										</tr>
+										<tr>
+											<th width="30%">City</th>
+											<td width="2%">:</td>
+											<td>{{i.dcity}}</td>
+										</tr>
+										
+									</table>
+								</from>
+                            </div>
+                        </div>
+                
+                    </div>
+                </div>
+        
+           
+              
+            </div>
+          
+        </div>
+    </div>
+</body>
+</html>
